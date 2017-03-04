@@ -54,7 +54,7 @@ public class SendEmail {
         email.addRecipient(javax.mail.Message.RecipientType.TO,
                 new InternetAddress(to));
         email.setSubject(subject);
-        email.setText(bodyText);
+        email.setContent(bodyText, "text/html");
         email.setSentDate(new Date());
         return email;
     }
@@ -88,7 +88,7 @@ public class SendEmail {
         email.setSentDate(new Date());
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
-        mimeBodyPart.setContent(bodyText, "text/plain");
+        mimeBodyPart.setContent(bodyText, "text/html");
 
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(mimeBodyPart);
